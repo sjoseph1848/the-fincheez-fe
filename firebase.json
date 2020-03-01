@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "fincheez",
+      "public": "dist/fincheez",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

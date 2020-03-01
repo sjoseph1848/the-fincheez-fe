@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fincheez-55527": {
+      "hosting": {
+        "fincheez": [
+          "fincheez-55527"
+        ]
+      }
+    }
+  }
+}
