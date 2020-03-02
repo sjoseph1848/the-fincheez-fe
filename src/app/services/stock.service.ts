@@ -43,4 +43,29 @@ export class StockService {
   newStock(client: Stock) {
     this.stocksCollection.add(client);
   }
+
+  getStock(id: string): Observable<Stock> {
+    this.stockDoc = this.afs.doc<Stock>(`stocks/${id}`);
+    this.stock = this.stockDoc.snapshotChanges().pipe(
+      map(action => {
+        if (action.payload.exists === false) {
+          return null;
+        } else {
+          const data = action.payload.data() as Stock;
+          data.id = action.payload.id;
+          return data;
+        }
+      })
+    );
+    return this.stock;
+  }
+  updateStock(stock: Stock) {
+    this.stockDoc = this.afs.doc(`stocks/${stock.id}`);
+    this.stockDoc.update(stock);
+  }
+  deleteStock(stock: Stock) {
+    this.stockDoc = this.afs.doc(`stocks/${stock.id}`);
+    this.stockDoc.delete();
+  }
+
 }

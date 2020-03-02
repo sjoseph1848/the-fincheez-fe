@@ -26,6 +26,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Services
 import { StockService } from './services/stock.service';
+import { AuthService } from './services/auth.service';
+// Forms Module
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -47,12 +50,13 @@ import { StockService } from './services/stock.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'fincheez'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [StockService],
+  providers: [StockService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
