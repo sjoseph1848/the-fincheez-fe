@@ -8,7 +8,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-
+  settings = {
+    allowRegistration: true,
+  }
   constructor(public auth: AngularFireAuth) { }
 
   login(email: string, password: string){
@@ -33,5 +35,9 @@ export class AuthService {
       .then(userData => resolve(userData),
       err => reject(err))
     });
+  }
+
+  getSettings() {
+    return this.settings;
   }
 }

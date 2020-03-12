@@ -29,6 +29,7 @@ import { StockService } from './services/stock.service';
 import { AuthService } from './services/auth.service';
 // Forms Module
 import { FormsModule } from '@angular/forms';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 
@@ -45,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     SettingsComponent,
     SidebarComponent,
     StockDetailsComponent,
-    StocksComponent
+    StocksComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

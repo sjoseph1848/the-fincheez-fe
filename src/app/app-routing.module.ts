@@ -13,16 +13,22 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
 
 // guard
 import { AuthGuard } from './guards/auth.guard';
+import { RegisterGuard } from './guards/register.guard';
+import { LandingComponent } from './components/landing/landing.component';
+
 
 const routes: Routes = [
   {
-    path: '', component: DashboardComponent, canActivate: [AuthGuard]
+    path: '', component: LandingComponent
+  },
+  {
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
   },
   {
     path: 'login', component: LoginComponent
   },
   {
-    path: 'register', component: RegisterComponent,
+    path: 'register', component: RegisterComponent,canActivate: [RegisterGuard]
   },
   {
     path: 'stock/add', component: AddStockComponent,canActivate: [AuthGuard]
@@ -46,6 +52,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, RegisterGuard]
 })
 export class AppRoutingModule { }
